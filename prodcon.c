@@ -177,6 +177,11 @@ int main(int argc, char *argv[]) {
 
     print_summary(total_time, num_consumers, ID, work_counts);
 
+    // for non-mac
+    sem_destroy(&queue_sem);
+    sem_destroy(&file_sem);
+    sem_destroy(&empty);
+    sem_destroy(&full);
     // for mac
     // sem_unlink("/queue_sem");
     // sem_unlink("file_sem");

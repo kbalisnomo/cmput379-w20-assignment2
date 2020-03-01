@@ -178,10 +178,10 @@ int main(int argc, char *argv[]) {
     print_summary(total_time, num_consumers, ID, work_counts);
 
     // for mac
-    sem_unlink("/queue_sem");
-    sem_unlink("file_sem");
-    sem_unlink("/empty");
-    sem_unlink("/full");
+    // sem_unlink("/queue_sem");
+    // sem_unlink("file_sem");
+    // sem_unlink("/empty");
+    // sem_unlink("/full");
 
     fclose(file);
 

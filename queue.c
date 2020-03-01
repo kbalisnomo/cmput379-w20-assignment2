@@ -1,5 +1,6 @@
+/* A queue implementation. */
 #include "queue.h"
-  
+ 
 struct Queue* createQueue(unsigned capacity) 
 { 
     struct Queue* queue = (struct Queue*) malloc(sizeof(struct Queue)); 
@@ -9,13 +10,16 @@ struct Queue* createQueue(unsigned capacity)
     queue->array = (int*) malloc(queue->capacity * sizeof(int)); 
     return queue; 
 } 
-  
+
+// Check if the queue is full
 int isFull(struct Queue* queue) 
 {  return (queue->size == queue->capacity);  } 
   
+// Check if the queue is empty
 int isEmpty(struct Queue* queue) 
 {  return (queue->size == 0); } 
-  
+
+// Add an item to the queue
 void enqueue(struct Queue* queue, int item) 
 { 
     if (isFull(queue)) 
@@ -24,7 +28,8 @@ void enqueue(struct Queue* queue, int item)
     queue->array[queue->rear] = item; 
     queue->size = queue->size + 1; 
 } 
-  
+
+// Remove an item from the queue
 int dequeue(struct Queue* queue) 
 { 
     if (isEmpty(queue)) 
@@ -35,6 +40,7 @@ int dequeue(struct Queue* queue)
     return item; 
 } 
   
+// Get the front of the queue
 int front(struct Queue* queue) 
 { 
     if (isEmpty(queue)) 
@@ -42,6 +48,7 @@ int front(struct Queue* queue)
     return queue->array[queue->front]; 
 } 
   
+// Get the rear of the queue
 int rear(struct Queue* queue) 
 { 
     if (isEmpty(queue)) 

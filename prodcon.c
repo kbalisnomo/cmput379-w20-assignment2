@@ -110,6 +110,10 @@ int main(int argc, char *argv[]) {
     
     // initialize semaphores
     // for non-mac (remove pointer, change all functions)
+    sem_destroy(&queue_sem);
+    sem_destroy(&file_sem);
+    sem_destroy(&empty);
+    sem_destroy(&full);
     sem_init(&queue_sem, 0, 1);
     sem_init(&file_sem, 0, 1);
     sem_init(&empty, 0, SIZE);
